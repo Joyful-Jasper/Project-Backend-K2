@@ -36,6 +36,7 @@ const usersSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  order: [{ type: Schema.Types.ObjectId, ref: 'orderModel' }],
 });
 
 const usersModel = mongoose.model("Users", usersSchema);
