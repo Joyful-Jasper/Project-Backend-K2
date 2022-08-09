@@ -1,31 +1,15 @@
-const dotenv = require("dotenv");
-dotenv.config();
-
 const express = require("express");
+const dbConnection = require("./Helpers/db");
 
+const app = express();
+const PORT = process.env.PORT || 8000;
 const router = require("./Routers");
-const port = process.env.PORT || 3000;
-const db = require("./Helpers/db");
 
-async function main() {
-  try {
-    await db;
+dbConnection.then(() => console.log("Berhasil Connect")).catch((err) => console.log("Error:", err));
 
-    const app = express();
-    app.use(express.json());
+app.use(express.json());
+app.use(router);
 
-    app.use(router);
-
-    router.get("/", (req, res) => {
-      res.send({ welcome: "Welcome to BAM Petshop API" });
-    });
-
-    app.listen(port, () => {
-      console.log("server is listening on", port);
-    });
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-main();
+app.listen(PORT, () => {
+	console.log("Running on port", PORT);
+});
