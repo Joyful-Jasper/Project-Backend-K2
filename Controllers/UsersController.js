@@ -1,10 +1,10 @@
-const { userModel } = require("../Models");
+const {  UsersModel } = require("../Models");
 const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 
 module.exports = {
     getAllUser: async (req, res) => {
-        const users = await userModel.find({})
+        const users = await  UsersModel.find({})
         console.log(users)
 
         try {
@@ -20,25 +20,27 @@ module.exports = {
 
     getUserByID: async (req, res) => {
         const { id } = req.params
-        const user = await userModel.findById(id)
+        const user = await  UsersModel.findById(id)
 
         res.json({
             massage: "success",
             data: user
         })
     },
-    updateUserByID: (req, res) => {
-        const { id } = req.params
-        const user = await userModel.updateOne(id)
-        res.json({
-            data: user
-        })
-    },
-    deleteUserByID: (req, res) => {
-        const { id } = req.params
-        const user = await userModel.deleteOne(id)
-        req.json({
-            data: user
-        })
-    },
+    // updateUserByID: async (req, res) => {
+    //     const { id } = req.params
+    //     const user = await  UsersModel.updateOne(id)
+    //     res.json({
+    //         massage: "success",
+    //         data: user
+    //     })
+    // },
+    // deleteUserByID: async (req, res) => {
+    //     const { id } = req.params
+    //     const user = await  UsersModel.deleteOne(id)
+    //     req.json({
+    //         massage: "success",
+    //         data: user
+    //     })
+    // },
 };
