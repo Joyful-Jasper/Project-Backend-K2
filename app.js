@@ -1,5 +1,6 @@
 const express = require("express");
 const dbConnection = require("./Helpers/db");
+const cors = require("cors")
 
 const app = express();
 const PORT = process.env.PORT || 8000;

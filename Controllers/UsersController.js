@@ -18,8 +18,8 @@ module.exports = {
         }
     },
 
-    gerUserByID: async (req, res) => {
-        const { id } = req.param
+    getUserByID: async (req, res) => {
+        const { id } = req.params
         const user = await userModel.findById(id)
 
         res.json({
@@ -27,14 +27,18 @@ module.exports = {
             data: user
         })
     },
-
-    addUser: (req, res) => {
-        const data = req.body
-        const user = new userModel(data)
-        user.save()
-
-        res.json("success add data user")
+    updateUserByID: (req, res) => {
+        const { id } = req.params
+        const user = await userModel.updateOne(id)
+        res.json({
+            data: user
+        })
     },
-    updateUserByID: (req, res) => { },
-    deleteUserByID: (req, res) => { },
+    deleteUserByID: (req, res) => {
+        const { id } = req.params
+        const user = await userModel.deleteOne(id)
+        req.json({
+            data: user
+        })
+    },
 };
