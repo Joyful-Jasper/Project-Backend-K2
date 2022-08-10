@@ -1,4 +1,4 @@
-const { userModel } = requere("../Model");
+const { userModel } = require("../Models");
 const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 
