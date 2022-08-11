@@ -13,10 +13,8 @@ const {
 
 router.get("/", getAllProducts)
 router.get("/:id", getProductsByID)
-router.post("/:id", addProducts)
-router.put("/", updateProductsByID)
-
-
+router.post("/", addProducts)
+router.put("/:id", updateProductsByID)
 
 
 module.exports = router;

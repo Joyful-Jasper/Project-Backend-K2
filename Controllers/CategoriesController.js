@@ -3,13 +3,13 @@ const { CategoriesModel } = require("../Models");
 
 module.exports = {
     getAllCategories: async (req, res) => {
-        const users = await CategoriesModel.find({});
-        console.log(users);
+        const categori = await CategoriesModel.find({});
+        console.log(categori);
 
         try {
             res.json({
                 message: "berhasil ambil data semua user",
-                data: users,
+                data: categori,
             });
         } catch (err) {
             console.log(err);
