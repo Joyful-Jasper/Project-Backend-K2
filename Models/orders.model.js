@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 
 const ordersSchema = new mongoose.Schema({
   date: {
-    type: date,
+    type: Date,
     required: true,
   },
   payment: {
-    type: boolean,
+    type: Boolean,
   },
 });
 
