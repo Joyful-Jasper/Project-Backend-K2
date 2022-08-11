@@ -9,10 +9,10 @@ const orderItemsSchema = new mongoose.Schema({
 		required: true,
 		maxlength: 5,
 	},
-	sub_total: {
-		type: Number,
-		required: true,
-	},
+	// sub_total: {
+	// 	type: Number,
+	// 	required: true,
+	// },
 	order: { type: Schema.Types.ObjectId, ref: "orderModel" },
 });
 
