@@ -7,7 +7,7 @@ module.exports = {
 
 		try {
 			res.json({
-				message: "berhasil ambil data semua user",
+				message: "berhasil ambil data semua category",
 				data: category,
 			});
 		} catch (err) {
@@ -37,9 +37,18 @@ module.exports = {
 
 	updateCategoriesByID: async (req, res) => {
 		const { id } = req.params;
-		const category = await CategoriesModel.updateOne(id);
+		const category = await CategoriesModel.updateOne({ id: id });
 		res.json({
 			data: category,
 		});
 	},
+
+	deleteCategoriesByID: async (req, res) => {
+		const { id } = req.params
+		const category = await CategoriesModel.deleteOne({ id: id })
+		res.json({
+			massage: "success",
+			data: category
+		})
+	}
 };
