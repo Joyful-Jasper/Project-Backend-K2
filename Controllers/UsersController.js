@@ -1,6 +1,8 @@
+
 const { UsersModel } = require("../Models");
-const bodyParser = require("body-parser");
-const jwt = require("jsonwebtoken");
+// const bodyParser = require("body-parser");
+// const jwt = require("jsonwebtoken");
+
 
 module.exports = {
     getAllUser: async (req, res) => {
