@@ -39,7 +39,7 @@ module.exports = {
 	updateProductsByID: async (req, res) => {
 		const { id } = req.params;
 		const data = req.body;
-		const product = await ProductsModel.updateOne({ id: `${id}` }, data);
+		const product = await ProductsModel.updateOne({ id: id }, data);
 
 		if (product.acknowledged === false) {
 			res.json("Invalid data");
