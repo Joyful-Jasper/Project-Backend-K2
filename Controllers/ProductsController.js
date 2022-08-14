@@ -47,4 +47,13 @@ module.exports = {
 			res.json("Success");
 		}
 	},
+
+	deleteProductByID: async (req, res) => {
+		const { id } = req.params
+		const product = await ProductsModel.deleteOne({ id: id });
+		res.json({
+			massage: "success",
+			data: product
+		})
+	},
 };

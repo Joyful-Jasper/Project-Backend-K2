@@ -40,7 +40,7 @@ module.exports = {
     deleteUserByID: async (req, res) => {
         const { id } = req.params
         const user = await UsersModel.deleteOne({ id: id });
-        req.json({
+        res.json({
             massage: "success",
             data: user
         })

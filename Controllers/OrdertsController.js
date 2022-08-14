@@ -31,10 +31,23 @@ module.exports = {
 
     res.json("succes")
 
+  },
+  updateOrderByID: async (req, res) => {
+    const { id } = req.params
+    const order = await OrdersModel.updateOne({ id: id });
+    res.json({
+      massage: "success update users",
+      data: order
+    })
+  },
 
-
-
-
-  }
+  deleteOrderByID: async (req, res) => {
+    const { id } = req.params
+    const order = await OrdersModel.deleteOne({ id: id });
+    res.json({
+      massage: "success",
+      data: order
+    })
+  },
 
 }
