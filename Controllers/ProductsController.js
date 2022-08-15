@@ -6,7 +6,7 @@ module.exports = {
 
 		try {
 			res.json({
-				message: "berhasil ambil data semua user",
+				message: "berhasil ambil data semua product",
 				data: product,
 			});
 		} catch (err) {
